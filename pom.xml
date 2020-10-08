@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>week03_jdbc_configuration_maven</artifactId>
+    <artifactId>week03_jdbc_configuration_maven_singleton</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>week03_jdbc_configuration_maven</name>
+    <name>week03_jdbc_configuration_maven_singleton</name>
     <packaging>war</packaging>
 
     <properties>
