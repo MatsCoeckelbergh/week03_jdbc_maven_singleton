@@ -9,5 +9,6 @@
 # Maven
 log/
 target/
+
 # password
-src/main/java/domain/db/Secret.java
+/src/main/java/util/Secret.java
