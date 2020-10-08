@@ -33,9 +33,7 @@ public class CountryDBSQL implements CountryDB {
             statementSQL.setString(2, country.getCapital());
             statementSQL.setInt(3, country.getNumberInhabitants());
             statementSQL.setInt(4, country.getVotes());
-            connection.setAutoCommit(false);
             statementSQL.execute();
-            connection.commit();
         } catch (SQLException e) {
             throw new DbException(e);
         }
@@ -52,9 +50,7 @@ public class CountryDBSQL implements CountryDB {
         String sql = "SELECT * FROM country";
         try {
             PreparedStatement statementSql = connection.prepareStatement(sql);
-            connection.setAutoCommit(false);
             ResultSet result = statementSql.executeQuery();
-            connection.commit();
             while (result.next()) {
                 String name = result.getString("name");
                 String capital = result.getString("capital");
