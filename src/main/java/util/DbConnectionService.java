@@ -13,7 +13,7 @@ public class DbConnectionService {
     }
 
     public static void connect() {
-        DBConnectionManager connectionManager = new DBConnectionManager(dbURL, searchPath);
+        DBConnectionManager connectionManager = DBConnectionManager.getInstance(dbURL, searchPath);
         dbConnection = connectionManager.getConnection();
     }
 

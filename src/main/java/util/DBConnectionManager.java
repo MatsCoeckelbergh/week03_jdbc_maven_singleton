@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBConnectionManager {
-    private Connection connection;
+    public Connection connection;
+    private static DBConnectionManager dbConnectionManager_instance = null;
 
-    public DBConnectionManager(String dbURL, String searchPath) {
+    private DBConnectionManager(String dbURL, String searchPath) {
         Properties dbProperties = new Properties();
         try {
             Class.forName("util.Secret");
@@ -37,6 +38,13 @@ public class DBConnectionManager {
         } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public static DBConnectionManager getInstance(String dbURL, String searchPath) {
+        if (dbConnectionManager_instance == null) {
+            dbConnectionManager_instance = new DBConnectionManager(dbURL, searchPath);
+        }
+        return dbConnectionManager_instance;
     }
 
     public Connection getConnection() {
