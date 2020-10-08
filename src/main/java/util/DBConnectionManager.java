@@ -13,7 +13,7 @@ public class DBConnectionManager {
     private DBConnectionManager(String dbURL, String searchPath) {
         Properties dbProperties = new Properties();
         try {
-            Class.forName("util.Secret");
+            Class.forName("util.Secret");  // implementation of abstract class Credentials
             Secret.setPass(dbProperties);
         } catch (ClassNotFoundException e) {
             System.out.println("Class Secret with credentials not found!");
