@@ -29,9 +29,10 @@ public class DBConnectionManager {
 
             System.out.println("done");
         } catch (ClassNotFoundException e) {
-            System.out.println(e);
+            System.out.println(e.getException().getMessage());
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.print("connection troubles");
+            System.out.println(e.getErrorCode());
         }
     }
 
