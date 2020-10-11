@@ -29,7 +29,8 @@ public class CountryDBSQL implements CountryDB {
         if (country == null) {
             throw new DbException("Nothing to add.");
         }
-        String sql = "INSERT INTO country (name, capital, inhabitants, votes) VALUES (?, ?, ?, ?)";
+        String sql = String.format("INSERT INTO %s.country (name, capital, inhabitants, votes) VALUES (?, ?, ?, ?)", this.schema);
+
         try {
             PreparedStatement statementSQL = connection.prepareStatement(sql);
             statementSQL.setString(1, country.getName());
