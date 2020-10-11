@@ -11,4 +11,12 @@
         <error-code>404</error-code>
         <location>/error404.jsp</location>
     </error-page>
+    <context-param>
+        <param-name>dburl</param-name>
+        <param-value>jdbc:postgresql://databanken.ucll.be:62021/webontwerp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>schema</param-name>
+        <param-value>web3</param-value>
+    </context-param>
 </web-app>

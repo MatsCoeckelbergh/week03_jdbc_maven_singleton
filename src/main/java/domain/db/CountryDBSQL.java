@@ -9,9 +9,12 @@ import java.util.List;
 
 public class CountryDBSQL implements CountryDB {
     private Connection connection;
+    private String schema;
 
     public CountryDBSQL() {
         this.connection = DbConnectionService.getDbConnection();
+        this.schema = DbConnectionService.getSchema();
+        System.out.println(this.schema);
     }
 
     /**
@@ -47,7 +50,7 @@ public class CountryDBSQL implements CountryDB {
      */
     public List<Country> getAll() {
         List<Country> countries = new ArrayList<Country>();
-        String sql = "SELECT * FROM country";
+        String sql = String.format("SELECT * FROM %s.country", this.schema);
         try {
             PreparedStatement statementSql = connection.prepareStatement(sql);
             ResultSet result = statementSql.executeQuery();

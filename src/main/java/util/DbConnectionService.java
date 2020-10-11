@@ -4,16 +4,20 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DbConnectionService {
-    private static String dbURL = "jdbc:postgresql://databanken.ucll.be:62021/webontwerp";
-    private static String searchPath = "web3";
     private static Connection dbConnection;
+    private static String schema;
+
+    public static String getSchema() {
+        return schema;
+    }
 
     public static Connection getDbConnection() {
         return dbConnection;
     }
 
-    public static void connect() {
-        DBConnectionManager connectionManager = DBConnectionManager.getInstance(dbURL, searchPath);
+    public static void connect(String dbURL, String searchPath) {
+        schema = searchPath;
+        DBConnectionManager connectionManager = DBConnectionManager.getInstance(dbURL);
         dbConnection = connectionManager.getConnection();
     }
 
